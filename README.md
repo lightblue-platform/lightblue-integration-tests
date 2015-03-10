@@ -10,12 +10,6 @@ sudo yum install docker -y
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
-### Allow ordinary user to use Docker client
-Assuming $USER is your login:
-```
-sudo usermod -a -G docker $USER
-sudo exec su -l $USER` # (to refresh group membership without re-login)
-```
 ### Enable rest endpoint
 ```
 sudo vi /etc/sysconfig/docker
