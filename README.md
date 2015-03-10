@@ -5,17 +5,21 @@ Lightblue integration tests example using Docker. For more information, see:
 # How to run?
 ## Configure Docker
 You need to have Docker installed, Docker daemon running and Docker remote api exposed. This is how on Fedora 21:
-1. Install Docker
-  1. `sudo yum install docker -y`
-  2. `sudo systemctl enable docker`
-  3. `sudo systemctl start docker`
-2. Allow ordinary user to use Docker client (assuming $USER is your login)
-  1. `sudo usermod -a -G docker $USER`
-  2. `sudo exec su -l $USER` (to refresh group membership without re-login)
-3. Enable rest endpoint
-  1. `sudo vi /etc/sysconfig/docker`
-  2. Modify options like this: `OPTIONS='--selinux-enabled -H tcp://localhost:4243 -H unix:///var/run/docker.sock'`
-  3. `sudo systemctl restart docker`
+### Install Docker
+```
+sudo yum install docker -y
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+Allow ordinary user to use Docker client (assuming $USER is your login)
+```
+sudo usermod -a -G docker $USER
+sudo exec su -l $USER` # (to refresh group membership without re-login)
+```
+### Enable rest endpoint
+`sudo vi /etc/sysconfig/docker`
+Modify options like this: `OPTIONS='--selinux-enabled -H tcp://localhost:4243 -H unix:///var/run/docker.sock'`
+`sudo systemctl restart docker`
 
 ## Run
 Once Docker is installed and configured, all you need to do is:
