@@ -8,7 +8,7 @@
   <packaging>jar</packaging>
 
   <properties>
-    <dockerImage>lightblue:1.2.0</dockerImage>
+    <dockerImage>paterczm/lightblue:1.2.0</dockerImage>
   </properties>
 
   <dependencies>
